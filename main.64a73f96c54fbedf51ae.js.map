@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./js/index.js"],"names":[],"mappings":"6FAAA,4B","file":"main.64a73f96c54fbedf51ae.js","sourcesContent":["import '../styles.css';\r\n\r\nimport './colors-list'"],"sourceRoot":""}
