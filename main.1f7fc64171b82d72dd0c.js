@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{"7hx4":function(t,o,n){"use strict";n.r(o);n("L1EO"),n("fWi5"),document.body.style.backgroundColor},L1EO:function(t,o,n){},fWi5:function(t,o){var n={startBtn:document.querySelector("button[data-action=start]")};console.log(n.startBtn)}},[["7hx4",1]]]);
+//# sourceMappingURL=main.1f7fc64171b82d72dd0c.js.map

@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{"7hx4":function(n,o,c){"use strict";c.r(o);c("L1EO"),c("fWi5"),document.body.style.backgroundColor},L1EO:function(n,o,c){},fWi5:function(n,o){}},[["7hx4",1]]]);
-//# sourceMappingURL=main.6e6a68b654a1a3da7a61.js.map
