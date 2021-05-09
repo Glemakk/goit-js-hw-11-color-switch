@@ -1,83 +1,82 @@
-import colors, { refs } from './colors-list'
+import colors, { refs } from './constants'
 
-console.log(colors[3])
-console.log(colors.length);
+refs.startBtn.addEventListener('click', () => { bgcTimer.start() });
+refs.stopBtn.addEventListener('click', () => { bgcTimer.stop() });
 
 
- refs.startBtn.addEventListener('click', changeBgc);
+class BgcTimer {
+    constructor({onTick}) {
+        this.intervalId = null;
+        this.isActive = false;
+            this.onTick = onTick;
+        }
 
-// const randomIntegerFromInterval = (min, max) => {
-//     return Math.floor(Math.random(color) * (max - min + 1) + min);
-// };
-// const randomIntegerFromInterval = (min, max) => {
-//     return Math.floor(Math.random() * (max - min + 1) + min);
-            
+        start() {
+    if (this.isActive) {
+        return;
+    }
+                
+    this.isActive = true;
+        this.intervalId = setInterval(() => {
+        this.onTick();
+        console.log(changeBgc())
+    }, 1000);
+        }
+        
+  stop() {
+    clearInterval(this.intervalId);
+          this.isActive = false;
+          refs.body.style.backgroundColor = "transparent";
+  }
+}
+
+const bgcTimer = new BgcTimer({
+        onTick: changeBgc,
+})
+
 function changeBgc() {
-        refs.body.style.backgroundColor = colors[1];
-        console.log(colors[1]);
-        return refs.body.style.backgroundColor;}
-       
+    refs.body.style.backgroundColor = colors[randomIntegerFromInterval( 0, colors.length -1 )];
+    return refs.body.style.backgroundColor;
+}
 
+const randomIntegerFromInterval = ( min, max ) => {
+    return Math.floor( Math.random() * ( max - min + 1 ) + min );
+};
+
+
+
+
+//  //------------- Without Class
+// refs.startBtn.addEventListener('click', () => {bgcTimer.start()});
+// refs.stopBtn.addEventListener('click', () => { bgcTimer.stop() });
+
+// const bgcTimer = {
+//   intervalId: null,
+//   isActive: false,
+//   start() {
+//     if (this.isActive) {
+//         return;
+//     }
+                
+//     this.isActive = true;
+//     this.intervalId = setInterval(() => {
+//       changeBgc();
+//       console.log(changeBgc())
+//     }, 1000);
+//   },
+//   stop() {
+//     clearInterval(this.intervalId);
+//     this.isActive = false;
+//       refs.body.style.backgroundColor = "transparent";
+//   }
+// }
 
 // function changeBgc() {
-//     colors.map(color => {
-//         refs.body.style.backgroundColor = color;
-//         console.log(color);
-//         return color;
-//     });
+//     refs.body.style.backgroundColor = colors[randomIntegerFromInterval( 0, colors.length -1 )];
+//     return refs.body.style.backgroundColor;
+// }
+
+// const randomIntegerFromInterval = ( min, max ) => {
+//     return Math.floor( Math.random() * ( max - min + 1 ) + min );
 // };
-
-
-// const colorContainer = colors.map(color => {
-//     const bodyStyleRef = refs.body.style.backgroundColor;
-//     console.log(bodyStyleRef.textContent);
-//     bodyStyleRef.textContent = color;
-//     return bodyStyleRef;
-// });
-// refs.body.style.backgroundColor.append(...colorContainer)
-
-
-// const BGC = changeBgc();
-
-// const timeOutId = setTimeout(BGC, 1000);
-
-// console.log(setTimeout);
-
-// function changeBgc(e) {
-//     colors.map(color => {
-//         refs.body.style.backgroundColor = color;
-//         console.log(color);
-//         const randomIntegerFromInterval = (min, max) => {
-//     return Math.floor(Math.random() * (max - min + 1) + min);
-// };
-//         console.log(e.currentTarget);
-//         return color;
-//     })
-// };
-
-
-
-
-
-
-
-// setTimeout(function changeBgc() {
-//     document.body.style.backgroundColor = "#000";
-// },1000);
-// setTimeout(function bgcSwitchMaker() {
-//     colors.map(color => {
-//         refs.body.style.backgroundColor = color;
-    
-//     })}, 1000);
-
- console.log(changeBgc);
-// bgcSwitchMaker();
-
-
-
-// console.log(randomIntegerFromInterval);
-
-
-console.log(refs.startBtn);
-console.log(colors);
-console.log(refs.body);
+// console.log(changeBgc());
